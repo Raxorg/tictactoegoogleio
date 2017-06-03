@@ -10,8 +10,6 @@ public interface FirebaseInterface {
     //     SETTERS
     //-----------------
 
-    void setTurn(boolean playerX);
-
     void setBoard(String board);
 
     //-----------------
