@@ -12,7 +12,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by Luis on 03/06/2017.
  */
 
-public class FirebaseConnection implements FirebaseInterface {
+class FirebaseConnection implements FirebaseInterface {
 
     private DatabaseReference turnReference;
     private DatabaseReference boardReference;
@@ -47,11 +47,6 @@ public class FirebaseConnection implements FirebaseInterface {
 
             }
         });
-    }
-
-    @Override
-    public void setTurn(boolean playerX) {
-        turnReference.setValue(playerX);
     }
 
     @Override
@@ -99,7 +94,7 @@ public class FirebaseConnection implements FirebaseInterface {
         turnReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean turn= dataSnapshot.getValue(Boolean.class);
+                boolean turn = dataSnapshot.getValue(Boolean.class);
                 SetterManager.getInstance().gotTurnFromEnteringApp(turn);
             }
 

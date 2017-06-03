@@ -33,10 +33,6 @@ public class SetterManager {
         this.firebaseInterface = firebaseInterface;
     }
 
-    public void boardUpdateFromDB(String board) {
-        game.setBoard(board);
-    }
-
     // We asked the DB whose turn it was, here's the answer
     public void gotTurnFromCheck(boolean playerX) {
         if (playerX == game.isPlayerX()) {
@@ -65,6 +61,7 @@ public class SetterManager {
     }
 
     public void gotTurnFromUpdateConfirmed(boolean turn) {
+        game.setCurrentTurn(turn);
         game.playPiece(5);
     }
 
